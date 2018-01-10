@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:id="@+id/rl_balance"
+            android:background="@color/color_accent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/civ_avatar"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/ic_dollar_brown_48dp"
+                android:contentDescription="@string/img_description"
+                android:layout_centerInParent="true"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_your_balance"
+                android:text="@string/tv_your_balance"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_secondary"
+                android:textAllCaps="true"
+                android:paddingTop="@dimen/view_padding_medium"
+                android:paddingStart="@dimen/view_padding_medium"
+                android:paddingLeft="@dimen/view_padding_medium"
+                android:paddingEnd="@dimen/view_padding_medium"
+                android:paddingRight="@dimen/view_padding_medium"
+                android:layout_below="@+id/civ_avatar"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_balance"
+                android:text="@string/tv_app_name"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_primary"
+                android:textStyle="bold"
+                android:textAllCaps="true"
+                android:paddingBottom="@dimen/view_padding_medium"
+                android:paddingStart="@dimen/view_padding_medium"
+                android:paddingLeft="@dimen/view_padding_medium"
+                android:paddingEnd="@dimen/view_padding_medium"
+                android:paddingRight="@dimen/view_padding_medium"
+                android:layout_below="@+id/tv_your_balance"
+                android:gravity="center"/>
+
+        </RelativeLayout>
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/rl_balance"
+            android:layout_above="@+id/btn_top_up_account">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tv_payment_history"
+                    android:textColor="@color/color_accent"
+                    android:textSize="@dimen/text_primary"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"
+                    android:padding="@dimen/view_padding_extra_large"/>
+
+                <android.support.v7.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rv_top_up_history"/>
+
+            </LinearLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_top_up_account"
+            android:text="@string/btn_top_up_account"
+            android:textColor="@color/white_text"
+            android:background="@color/color_accent"
+            android:layout_alignParentBottom="true"/>
+
+    </RelativeLayout>
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/tb_billing"
+        android:background="@android:color/transparent"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:titleTextColor="@color/white_text"/>
+
+</android.support.design.widget.CoordinatorLayout>

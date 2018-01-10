@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/action_request"
+            android:title="@string/act_request"
+            android:icon="@drawable/ic_directions_bus_black_24dp"/>
+
+        <item
+            android:id="@+id/action_billing"
+            android:title="@string/act_billing"
+            android:icon="@drawable/ic_monetization_on_black_24dp"/>
+
+        <item
+            android:id="@+id/action_history"
+            android:title="@string/act_history"
+            android:icon="@drawable/ic_history_black_24dp"/>
+
+    </group>
+
+</menu>

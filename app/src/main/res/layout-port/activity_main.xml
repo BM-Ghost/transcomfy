@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:background="@color/color_primary"
+    android:padding="@dimen/activity_padding">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/img_logo"
+            android:contentDescription="@string/img_description"
+            android:layout_marginTop="@dimen/view_margin_medium"
+            android:adjustViewBounds="true"
+            android:scaleType="centerInside"/>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:ems="10"
+                android:id="@+id/et_username"
+                android:hint="@string/et_hint_username"
+                android:drawableStart="@drawable/ic_email_black_18dp"
+                android:drawableLeft="@drawable/ic_email_black_18dp"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/view_margin_small">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:ems="10"
+                android:id="@+id/et_password"
+                android:hint="@string/et_hint_password"
+                android:drawableStart="@drawable/ic_lock_black_18dp"
+                android:drawableLeft="@drawable/ic_lock_black_18dp"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_log_in"
+            android:id="@+id/btn_log_in"
+            android:layout_marginTop="@dimen/view_margin_medium"
+            android:background="@drawable/btn_bg"
+            android:textColor="@color/white_text"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_sign_up"
+            android:id="@+id/btn_sign_up"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/view_margin_medium"
+            android:background="@android:color/transparent"
+            android:textColor="@color/color_accent"/>
+
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>

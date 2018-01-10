@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="chr_ellipsis">\u2026</string>
+    <string name="chr_hyphen">\u002D</string>
+
+</resources>

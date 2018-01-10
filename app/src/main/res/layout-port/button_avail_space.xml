@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shp_home_button_idle"
+    android:padding="@dimen/view_padding_extra_large">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_directions_bus_accent_48dp"
+        android:contentDescription="@string/img_description"
+        android:layout_margin="@dimen/view_margin_medium"
+        android:layout_gravity="center_horizontal"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_avail_space"
+        android:textSize="@dimen/text_primary"
+        android:textStyle="bold"
+        android:textColor="@color/color_accent"
+        android:textAllCaps="true"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"/>
+
+</LinearLayout>

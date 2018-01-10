@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shp_home_button_idle"
+    android:padding="@dimen/view_padding_extra_large">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_pending_requests"
+        android:text="@string/chr_hyphen"
+        android:textSize="48sp"
+        android:textStyle="bold"
+        android:textColor="@color/color_accent"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_pending_requests"
+        android:textSize="@dimen/text_primary"
+        android:textStyle="bold"
+        android:textColor="@color/color_accent"
+        android:textAllCaps="true"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"/>
+
+</LinearLayout>

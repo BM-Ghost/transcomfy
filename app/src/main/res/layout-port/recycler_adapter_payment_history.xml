@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/rl_payment_history"
+    android:background="@drawable/slct_list">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_created_at"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/app_name"
+        android:textSize="@dimen/text_primary"
+        android:textStyle="bold"
+        android:textColor="@color/black_text"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:paddingTop="@dimen/view_padding_medium"
+        android:paddingBottom="@dimen/view_padding_medium"
+        android:paddingStart="@dimen/activity_padding"
+        android:paddingLeft="@dimen/activity_padding"
+        android:paddingEnd="@dimen/activity_padding"
+        android:paddingRight="@dimen/activity_padding"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_amount"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/app_name"
+        android:textColor="@color/black_secondary_text"
+        android:textSize="@dimen/text_secondary"
+        android:layout_below="@+id/tv_created_at"
+        android:ellipsize="end"
+        android:paddingStart="@dimen/activity_padding"
+        android:paddingLeft="@dimen/activity_padding"
+        android:paddingEnd="@dimen/view_padding_small"
+        android:paddingRight="@dimen/view_padding_small"
+        android:paddingBottom="@dimen/view_padding_medium"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one"
+        android:layout_below="@+id/tv_amount"
+        android:background="@color/black_divider"
+        android:layout_marginStart="@dimen/activity_margin"
+        android:layout_marginLeft="@dimen/activity_margin"
+        android:layout_marginEnd="@dimen/activity_margin"
+        android:layout_marginRight="@dimen/activity_margin"/>
+
+</RelativeLayout>

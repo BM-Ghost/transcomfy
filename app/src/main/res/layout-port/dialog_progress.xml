@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:padding="@dimen/view_padding_extra_extra_large"
+    android:layout_gravity="center">
+
+    <com.github.rahatarmanahmed.cpv.CircularProgressView
+        android:layout_width="@dimen/progress_bar_width_large"
+        android:layout_height="@dimen/progress_bar_height_large"
+        android:layout_gravity="center_horizontal"
+        app:cpv_thickness="@dimen/progress_bar_thickness_large"
+        app:cpv_color="@color/color_accent"
+        app:cpv_animAutostart="true"
+        app:cpv_indeterminate="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_message"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/dlg_message_please_wait"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="@dimen/view_margin_extra_extra_large"
+        android:layout_marginLeft="@dimen/view_margin_extra_extra_large"/>
+
+</LinearLayout>

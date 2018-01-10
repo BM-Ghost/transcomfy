@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@color/color_accent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/civ_avatar"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/ic_direction_bus_accent_48dp"
+                android:contentDescription="@string/img_description"
+                android:layout_centerInParent="true"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_avail_space_for"
+                android:text="@string/tv_avail_space_for"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_primary"
+                android:paddingTop="@dimen/view_padding_medium"
+                android:paddingStart="@dimen/view_padding_medium"
+                android:paddingLeft="@dimen/view_padding_medium"
+                android:paddingEnd="@dimen/view_padding_medium"
+                android:paddingRight="@dimen/view_padding_medium"
+                android:layout_below="@+id/civ_avatar"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_number_plate"
+                android:text="@string/chr_ellipsis"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_primary"
+                android:textStyle="bold"
+                android:textAllCaps="true"
+                android:paddingTop="@dimen/view_padding_small"
+                android:paddingStart="@dimen/view_padding_medium"
+                android:paddingLeft="@dimen/view_padding_medium"
+                android:paddingEnd="@dimen/view_padding_medium"
+                android:paddingRight="@dimen/view_padding_medium"
+                android:layout_below="@+id/tv_avail_space_for"
+                android:gravity="center"/>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="@dimen/view_margin_extra_extra_large">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ll_remove"
+                android:background="@drawable/shp_circle_accent"
+                android:padding="@dimen/view_padding_medium">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_remove_white_24dp"
+                    android:contentDescription="@string/img_description"/>
+
+            </LinearLayout>
+
+            <EditText
+                android:layout_width="96dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/et_avail_space"
+                android:text="@string/et_default_avail_space"
+                android:textColor="@color/color_accent"
+                android:textSize="@dimen/text_avail_space"
+                android:inputType="numberSigned"
+                android:maxLength="2"
+                android:gravity="center"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="@dimen/view_margin_extra_large"
+                android:layout_marginLeft="@dimen/view_margin_extra_large"
+                android:layout_marginEnd="@dimen/view_margin_extra_large"
+                android:layout_marginRight="@dimen/view_margin_extra_large"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ll_add"
+                android:background="@drawable/shp_circle_accent"
+                android:padding="@dimen/view_padding_medium">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_add_white_24dp"
+                    android:contentDescription="@string/img_description"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/tb_avail_space"
+        android:background="@android:color/transparent"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:titleTextColor="@color/white_text"/>
+
+</android.support.design.widget.CoordinatorLayout>

@@ -1,0 +1,77 @@
+<resources>
+
+    <!-- default -->
+    <string name="app_name">Transcomfy</string>
+
+    <!-- actions -->
+    <string name="act_log_out">Log out</string>
+    <string name="act_done">Done</string>
+    <string name="act_request">Request</string>
+    <string name="act_billing">Billing</string>
+    <string name="act_history">History</string>
+
+    <!-- buttons -->
+    <string name="btn_log_in">Log in</string>
+    <string name="btn_sign_up">Sign Up</string>
+    <string name="btn_top_up_account">Top up account</string>
+    <string name="btn_top_up">Top up</string>
+
+    <!-- dialogs -->
+    <string name="dlg_message_please_wait">Please wait\u2026</string>
+
+    <!-- drawerlayout -->
+    <string name="drawer_layout_open">Drawer open</string>
+    <string name="drawer_layout_closed">Drawer closed</string>
+
+    <!-- edittexts -->
+    <string name="et_default_avail_space">1</string>
+    <string name="et_hint_name">Name</string>
+    <string name="et_hint_username">Username</string>
+    <string name="et_hint_phone">Phone</string>
+    <string name="et_hint_email">Email</string>
+    <string name="et_hint_password">Password</string>
+    <string name="et_hint_confirm_password">Confirm password</string>
+    <string name="et_hint_amount">Amount</string>
+    <string name="et_hint_mpesa_pin">MPESA pin</string>
+
+    <!-- images -->
+    <string name="img_description">Image</string>
+
+    <!-- messages -->
+    <string name="msg_an_error_occurred">An error occurred</string>
+    <string name="msg_no_network">No network connection</string>
+    <string name="msg_name_required">Name is required</string>
+    <string name="msg_phone_required">Phone is required</string>
+    <string name="msg_email_required">Email is required</string>
+    <string name="msg_username_required">Username is required</string>
+    <string name="msg_password_required">Password is required</string>
+    <string name="msg_confirm_password_required">Password confirmation is required</string>
+    <string name="msg_email_invalid">That email is invalid, enter a valid email</string>
+    <string name="msg_username_invalid">That username is invalid, enter a valid email</string>
+    <string name="msg_password_confirmation_invalid">Your provided passwords do not match</string>
+    <string name="msg_credentials_invalid">The provided credentials are invalid</string>
+    <string name="msg_loading">loading\u2026</string>
+    <string name="msg_amount_required">Amount is required</string>
+    <string name="msg_mpesa_pin_required">MPESA pin is required</string>
+
+    <!-- toolbars -->
+    <string name="tb_pending_requests">Pending requests</string>
+    <string name="tb_spaces_remaining">\u0020spaces remaining</string>
+    <string name="tb_sign_up">Sign up</string>
+    <string name="tb_top_up_account">Top up account</string>
+    <string name="tb_top_history">History</string>
+    <string name="tb_history">History</string>
+
+    <!-- textviews -->
+    <string name="tv_app_name">Transcomfy Driver</string>
+    <string name="tv_bus_allocation">Bus allocation</string>
+    <string name="tv_no_bus">No bus</string>
+    <string name="tv_no_available_spaces">No available spaces</string>
+    <string name="tv_avail_space">Avail bus space</string>
+    <string name="tv_pending_requests">Pending requests</string>
+    <string name="tv_avail_space_for">Avail bus space for</string>
+    <string name="tv_spaces_available">\u0020spaces available</string>
+    <string name="tv_your_balance">Your balance</string>
+    <string name="tv_payment_history">Payment history</string>
+
+</resources>
