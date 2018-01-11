@@ -96,7 +96,7 @@ public class BillingFragment extends Fragment {
 
                                 Payment payment = new Payment();
                                 Date date = new Date(createdAt);
-                                payment.setCreatedAt(new SimpleDateFormat("EEE dd MMM YYYY HH:mm").format(date));
+                                payment.setCreatedAt(new SimpleDateFormat("EEE dd MMM yyyy HH:mm").format(date));
                                 payment.setAmount(String.valueOf(amount));
                                 payments.add(payment);
                                 rvTopUpHistory.getAdapter().notifyDataSetChanged();
