@@ -31,6 +31,7 @@
     <!-- text -->
     <dimen name="text_avail_space">96sp</dimen>
     <dimen name="text_large">24sp</dimen>
+    <dimen name="text_big">20sp</dimen>
     <dimen name="text_primary">16sp</dimen>
     <dimen name="text_secondary">14sp</dimen>
     <dimen name="text_tertiary">12sp</dimen>

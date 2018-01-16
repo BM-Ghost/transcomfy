@@ -33,6 +33,7 @@
     <string name="et_hint_confirm_password">Confirm password</string>
     <string name="et_hint_amount">Amount</string>
     <string name="et_hint_mpesa_pin">MPESA pin</string>
+    <string name="et_hint_where_to">Where to?</string>
 
     <!-- images -->
     <string name="img_description">Image</string>
@@ -73,5 +74,7 @@
     <string name="tv_spaces_available">\u0020spaces available</string>
     <string name="tv_your_balance">Your balance</string>
     <string name="tv_payment_history">Payment history</string>
+    <string name="tv_set_destination">Set destination\u2026</string>
+    <string name="et_hint_search">Search\u2026</string>
 
 </resources>

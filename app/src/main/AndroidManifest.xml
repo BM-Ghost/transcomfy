@@ -62,6 +62,12 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"/>
 
+        <activity
+            android:name="com.transcomfy.activity.SearchDestinationActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
+
     </application>
 
 </manifest>
