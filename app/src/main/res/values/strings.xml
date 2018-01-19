@@ -34,6 +34,7 @@
     <string name="et_hint_amount">Amount</string>
     <string name="et_hint_mpesa_pin">MPESA pin</string>
     <string name="et_hint_where_to">Where to?</string>
+    <string name="et_hint_search">Search\u2026</string>
 
     <!-- images -->
     <string name="img_description">Image</string>
@@ -54,6 +55,13 @@
     <string name="msg_loading">loading\u2026</string>
     <string name="msg_amount_required">Amount is required</string>
     <string name="msg_mpesa_pin_required">MPESA pin is required</string>
+    <string name="msg_set_your_destination">Set your destination</string>
+    <string name="msg_pick_a_bus_stop">Pick a bus stop</string>
+    <string name="msg_confirm_pick_up">Confirm pick up</string>
+    <string name="msg_finding_nearest_bus">Finding nearest bus\u2026</string>
+    <string name="msg_no_bus_available">No bus available</string>
+    <string name="msg_bus_mins_away_1">Bus\u0020</string>
+    <string name="msg_bus_mins_away_2">\u0020away</string>
 
     <!-- toolbars -->
     <string name="tb_pending_requests">Pending requests</string>
@@ -75,6 +83,5 @@
     <string name="tv_your_balance">Your balance</string>
     <string name="tv_payment_history">Payment history</string>
     <string name="tv_set_destination">Set destination\u2026</string>
-    <string name="et_hint_search">Search\u2026</string>
 
 </resources>

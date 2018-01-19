@@ -21,7 +21,7 @@
         android:id="@+id/tb_request"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        app:popupTheme="@style/AppTheme.PopupOverlay" />
+        app:popupTheme="@style/AppTheme.PopupOverlay"/>
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
@@ -38,12 +38,31 @@
             android:layout_height="wrap_content"
             android:id="@+id/tv_set_destination"
             android:text="@string/tv_set_destination"
-            android:padding="@dimen/view_padding_extra_large"
+            android:padding="@dimen/view_padding_large"
             android:textSize="@dimen/text_big"
             android:textColor="@color/black_text"
-            android:drawableEnd="@drawable/ic_search_black_24dp"
-            android:drawableRight="@drawable/ic_search_black_24dp"/>
+            android:drawableEnd="@drawable/ic_search_black_18dp"
+            android:drawableRight="@drawable/ic_search_black_18dp"/>
 
     </android.support.v7.widget.CardView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_message"
+        android:text="@string/msg_set_your_destination"
+        android:textAllCaps="true"
+        android:textColor="@color/white_text"
+        android:textSize="@dimen/text_primary"
+        android:textStyle="bold"
+        android:padding="@dimen/view_padding_medium"
+        android:layout_marginStart="@dimen/activity_margin"
+        android:layout_marginLeft="@dimen/activity_margin"
+        android:layout_marginEnd="@dimen/activity_margin"
+        android:layout_marginRight="@dimen/activity_margin"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/shp_tv_message"
+        android:layout_gravity="bottom"
+        android:gravity="center"/>
 
 </android.support.design.widget.CoordinatorLayout>

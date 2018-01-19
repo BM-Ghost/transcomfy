@@ -71,6 +71,13 @@ public class SearchDestinationActivity extends AppCompatActivity {
                 }
             }
         });
+
+        srlSearchDestination.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                setSearchDestination(URLs.URL_STOPS);
+            }
+        });
     }
 
     @Override
@@ -125,7 +132,6 @@ public class SearchDestinationActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(SearchDestinationActivity.this, "bar", Toast.LENGTH_SHORT).show();
                         srlSearchDestination.setRefreshing(false);
                     }
                 }

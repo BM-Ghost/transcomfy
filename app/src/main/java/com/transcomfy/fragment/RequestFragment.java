@@ -5,35 +5,71 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Criteria;
 import android.location.Location;
+import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.os.Looper;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.PolylineOptions;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.maps.DirectionsApi;
+import com.google.maps.DirectionsApiRequest;
+import com.google.maps.GeoApiContext;
+import com.google.maps.model.DirectionsLeg;
+import com.google.maps.model.DirectionsResult;
+import com.google.maps.model.DirectionsRoute;
+import com.google.maps.model.DirectionsStep;
+import com.google.maps.model.EncodedPolyline;
 import com.transcomfy.R;
 import com.transcomfy.activity.HomeActivity;
 import com.transcomfy.activity.SearchDestinationActivity;
+import com.transcomfy.data.DataManager;
 import com.transcomfy.data.Keys;
+import com.transcomfy.data.model.Bus;
 import com.transcomfy.data.model.Stop;
+import com.transcomfy.internet.Internet;
+import com.transcomfy.internet.URLs;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static android.content.Context.LOCATION_SERVICE;
 
@@ -44,7 +80,9 @@ public class RequestFragment extends Fragment implements OnMapReadyCallback {
     private TextView tvSetDestination;
     private GoogleMap googleMap;
     private SupportMapFragment mapFragment;
+    private TextView tvMessage;
 
+    private DataManager manager;
     private int REQUEST_STOP = 1;
 
     public RequestFragment() {
@@ -61,9 +99,14 @@ public class RequestFragment extends Fragment implements OnMapReadyCallback {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        manager = new DataManager(getContext());
+
         tbRequest = rootView.findViewById(R.id.tb_request);
         tvSetDestination = rootView.findViewById(R.id.tv_set_destination);
         mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.google_map);
+        tvMessage = rootView.findViewById(R.id.tv_message);
+        tvMessage.setText(R.string.msg_set_your_destination);
+        tvMessage.setOnClickListener(null);
 
         ((AppCompatActivity) getContext()).setSupportActionBar(tbRequest);
         ((AppCompatActivity) getContext()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -111,10 +154,11 @@ public class RequestFragment extends Fragment implements OnMapReadyCallback {
                 LocationManager locationManager = (LocationManager) getContext().getSystemService(LOCATION_SERVICE);
                 String provider = locationManager.getBestProvider(new Criteria(), true);
                 Location location = locationManager.getLastKnownLocation(provider);
-                request(location);
+                moveToLocation(location);
                 return true;
             }
         });
+
         if (ActivityCompat.checkSelfPermission(RequestFragment.this.getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
                 && ActivityCompat.checkSelfPermission(RequestFragment.this.getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             //checkLocationPermission();
@@ -122,12 +166,35 @@ public class RequestFragment extends Fragment implements OnMapReadyCallback {
             googleMap.setMyLocationEnabled(true);
         }
 
+        LocationManager locationManager = (LocationManager) getContext().getSystemService(LOCATION_SERVICE);
+        locationManager.requestSingleUpdate(new Criteria(), new LocationListener() {
+            @Override
+            public void onLocationChanged(Location location) {
+                moveToLocation(location);
+            }
+
+            @Override
+            public void onStatusChanged(String s, int i, Bundle bundle) {
+
+            }
+
+            @Override
+            public void onProviderEnabled(String s) {
+
+            }
+
+            @Override
+            public void onProviderDisabled(String s) {
+
+            }
+        }, Looper.getMainLooper());
+
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         database.getReference("buses")
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        googleMap.clear();
+                        /*googleMap.clear();
                         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                             if (snapshot.child("location").getValue() != null) {
                                 double latitude = snapshot.child("location").child("latitude").getValue(Double.class);
@@ -139,9 +206,10 @@ public class RequestFragment extends Fragment implements OnMapReadyCallback {
                                 options.title(name);
                                 options.snippet(numberPlate);
                                 options.position(new LatLng(latitude, longitude));
+                                options.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_bus_marker_primary_dark_32dp));
                                 googleMap.addMarker(options);
                             }
-                        }
+                        }*/
                     }
 
                     @Override
@@ -165,31 +233,281 @@ public class RequestFragment extends Fragment implements OnMapReadyCallback {
 
                     return;
                 }
+
                 Location location = locationManager.getLastKnownLocation(provider);
-                googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(), location.getLongitude()), 14.0f));
 
-                /*GMapV2Direction md = new GMapV2Direction();
-                Document doc = md.getDocument(
-                        new LatLng(location.getLatitude(), location.getLongitude()),
-                        new LatLng(stop.getLatitude(), stop.getLongitude()),
-                        GMapV2Direction.MODE_DRIVING);
+//                com.transcomfy.data.model.Location location = new com.transcomfy.data.model.Location(); // My location
+//                location.setLatitude(-1.2654);
+//                location.setLongitude(36.8045);
+                moveToLocation(location);
 
-                ArrayList<LatLng> directionPoint = md.getDirection(doc);
-                PolylineOptions rectLine = new PolylineOptions().width(3).color(
-                        Color.RED);
-
-                for (int i = 0; i < directionPoint.size(); i++) {
-                    rectLine.add(directionPoint.get(i));
-                }
-                Polyline polylin = googleMap.addPolyline(rectLine);*/
+                setStopsNearby(location, stop);
             }
         }
     }
 
-    private void request(Location location) {
+    private void moveToLocation(Location location) {
         if(location != null) {
-            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(), location.getLongitude()), 16.0f));
+            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(), location.getLongitude()), 14.0f));
         }
+    }
+
+    private void setStopsNearby(final Location location, final Stop stop) {
+        tvMessage.setText(R.string.msg_pick_a_bus_stop);
+        tvMessage.setOnClickListener(null);
+        googleMap.clear();
+        RequestQueue queue = Volley.newRequestQueue(getContext());
+
+        if(!Internet.isNetworkAvailable(getContext())){
+            Toast.makeText(getContext(), R.string.msg_no_network, Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        String url = URLs.URL_STOPS
+                .concat("?latitude=").concat(String.valueOf(location.getLatitude()))
+                .concat("&longitude=").concat(String.valueOf(location.getLongitude()));
+
+        JsonArrayRequest request = new JsonArrayRequest(
+                Request.Method.GET, url, null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray routesData) {
+                        try {
+                            if(routesData.length() > 0){
+                                for(int i = 0; i < routesData.length(); i++){
+                                    Stop stop = manager.getStop(routesData.getJSONObject(i));
+                                    if(stop != null){
+                                        MarkerOptions options = new MarkerOptions();
+                                        options.title(stop.getName());
+                                        options.position(new LatLng(stop.getLatitude(), stop.getLongitude()));
+                                        options.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_directions_bus_primary_18dp));
+                                        googleMap.addMarker(options);
+                                    }
+                                }
+
+                                googleMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+                                    @Override
+                                    public boolean onMarkerClick(Marker marker) {
+                                        googleMap.setOnMarkerClickListener(null);
+                                        LatLngBounds.Builder builder = new LatLngBounds.Builder();
+                                        builder.include(new LatLng(stop.getLatitude(),  stop.getLongitude())).include(marker.getPosition());
+
+                                        googleMap.animateCamera(CameraUpdateFactory.newLatLngBounds(builder.build(), 50));
+
+                                        googleMap.clear();
+
+                                        MarkerOptions options = new MarkerOptions();
+                                        options.position(marker.getPosition());
+                                        options.title(marker.getTitle());
+                                        options.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_directions_bus_green_18dp));
+                                        googleMap.addMarker(options);
+
+                                        MarkerOptions optionsDestination = new MarkerOptions();
+                                        optionsDestination.position(new LatLng(stop.getLatitude(), stop.getLongitude()));
+                                        optionsDestination.title(stop.getName());
+                                        optionsDestination.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_directions_bus_red_18dp));
+                                        googleMap.addMarker(optionsDestination);
+
+                                        // draw line - options to stop
+                                        // ========
+                                        //Define list to get all latlng for the route
+                                        List<LatLng> path = new ArrayList<>();
+
+                                        //Execute Directions API moveToLocation
+                                        GeoApiContext context = new GeoApiContext.Builder()
+                                                .apiKey("AIzaSyC7c_xTdIvyLPmJA3ZWvXhGMmBLXHoJKl4")
+                                                .build();
+
+                                        DirectionsApiRequest req = DirectionsApi.getDirections(context,
+                                                String.valueOf(options.getPosition().latitude).concat(",").concat(String.valueOf(options.getPosition().longitude)),
+                                                String.valueOf(stop.getLatitude()).concat(",").concat(String.valueOf(stop.getLongitude()))
+                                        );
+
+
+                                        try {
+                                            DirectionsResult res = req.await();
+
+                                            //Loop through legs and steps to get encoded polylines of each step
+                                            if (res.routes != null && res.routes.length > 0) {
+                                                DirectionsRoute route = res.routes[0];
+
+                                                if (route.legs != null) {
+                                                    for(int i=0; i<route.legs.length; i++) {
+                                                        DirectionsLeg leg = route.legs[i];
+                                                        if (leg.steps != null) {
+                                                            for (int j=0; j<leg.steps.length;j++){
+                                                                DirectionsStep step = leg.steps[j];
+                                                                if (step.steps != null && step.steps.length >0) {
+                                                                    for (int k=0; k<step.steps.length;k++){
+                                                                        DirectionsStep step1 = step.steps[k];
+                                                                        EncodedPolyline points1 = step1.polyline;
+                                                                        if (points1 != null) {
+                                                                            //Decode polyline and add points to list of route coordinates
+                                                                            List<com.google.maps.model.LatLng> coords1 = points1.decodePath();
+                                                                            for (com.google.maps.model.LatLng coord1 : coords1) {
+                                                                                path.add(new LatLng(coord1.lat, coord1.lng));
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                } else {
+                                                                    EncodedPolyline points = step.polyline;
+                                                                    if (points != null) {
+                                                                        //Decode polyline and add points to list of route coordinates
+                                                                        List<com.google.maps.model.LatLng> coords = points.decodePath();
+                                                                        for (com.google.maps.model.LatLng coord : coords) {
+                                                                            path.add(new LatLng(coord.lat, coord.lng));
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        } catch(Exception ex) {
+                                            Log.e("TAG", ex.getLocalizedMessage());
+                                        }
+
+                                        Log.e("TAG", String.valueOf(path.size()));
+
+                                        //Draw the polyline
+                                        if (path.size() > 0) {
+                                            PolylineOptions opts = new PolylineOptions().addAll(path).color(ContextCompat.getColor(getContext(), R.color.color_primary_dark)).width(5);
+                                            googleMap.addPolyline(opts);
+                                        }
+
+                                        confirmPickUp(stop);
+                                        return true;
+                                    }
+                                });
+                            }else{
+                                throw new Exception();
+                            }
+                        } catch (Exception e) {
+                            // An error occurred
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                }
+        );
+        request.setRetryPolicy(new DefaultRetryPolicy(10000, 10, 10));
+        queue.add(request);
+    }
+
+    private void confirmPickUp(final Stop stop) {
+        tvMessage.setText(R.string.msg_confirm_pick_up);
+        tvMessage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                tvMessage.setText(R.string.msg_finding_nearest_bus);
+                tvSetDestination.setOnClickListener(null);
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                database.getReference("buses")
+                        .addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                Bus bus = null;
+                                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                                    Bus temp = snapshot.getValue(Bus.class);
+                                    temp.setId(snapshot.getKey());
+                                    if (temp.getLocation() != null && temp.getAvailableSpace() > 0) {
+                                        // check distance = stop position - bus position
+                                        calculateDistance(stop, temp);
+                                    }
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+
+                            }
+                        });
+            }
+        });
+    }
+
+    private void calculateDistance(final Stop stop, final Bus bus) {
+        RequestQueue queue = Volley.newRequestQueue(getContext());
+
+        if(!Internet.isNetworkAvailable(getContext())){
+            Toast.makeText(getContext(), R.string.msg_no_network, Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        String url = URLs.URL_DIRECTIONS
+                .concat("origin=").concat(String.valueOf(stop.getLatitude())).concat(",").concat(String.valueOf(stop.getLongitude()))
+                .concat("&destination=").concat(String.valueOf(bus.getLocation().getLatitude())).concat(",").concat(String.valueOf(bus.getLocation().getLongitude()))
+                .concat("&sensor=false");
+        queue.add(new JsonObjectRequest(
+                Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        MarkerOptions options = new MarkerOptions();
+                        options.title(bus.getLocation().getName());
+                        options.snippet(bus.getNumberPlate());
+                        options.position(new LatLng(bus.getLocation().getLatitude(), bus.getLocation().getLongitude()));
+                        options.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_bus_marker_primary_dark_32dp));
+                        googleMap.addMarker(options);
+
+                        try {
+                            tvMessage.setText(
+                                    getString(R.string.msg_bus_mins_away_1)
+                                            .concat(bus.getNumberPlate())
+                                            .concat("\u0020is\u0020")
+                                            .concat(response.getJSONArray("routes").getJSONObject(0).getJSONArray("legs").getJSONObject(0).getJSONObject("duration").getString("text"))
+                                            .concat(getString(R.string.msg_bus_mins_away_2))
+                            );
+                            request(bus, stop);
+                        } catch (Exception e) {
+                            tvMessage.setText(R.string.msg_no_bus_available);
+                        }
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                }
+        ));
+        // if distance < 2km show estimate arrival time, number plate
+        // else show no bus available
+    }
+
+    private void request(final Bus bus, final Stop stop) {
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        database.getReference("users").child(auth.getUid())
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        com.transcomfy.data.model.Location location = new com.transcomfy.data.model.Location();
+                        location.setName(stop.getName());
+                        location.setLatitude(stop.getLatitude());
+                        location.setLongitude(stop.getLongitude());
+
+                        com.transcomfy.data.model.Request request = new com.transcomfy.data.model.Request();
+                        request.setName(dataSnapshot.child("name").getValue(String.class));
+                        request.setLocation(location);
+                        request.setStatus("PENDING");
+
+                        String id = database.getReference().push().getKey();
+                        database.getReference("buses").child(bus.getId()).child("requests").child(id).setValue(request);
+                        database.getReference("drivers").child(bus.getDriverId()).child("bus").child("requests").child(id).setValue(request);
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
     }
 
 }

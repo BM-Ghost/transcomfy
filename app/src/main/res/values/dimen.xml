@@ -16,6 +16,7 @@
     <dimen name="three">3dp</dimen>
     <dimen name="four">4dp</dimen>
     <dimen name="five">5dp</dimen>
+    <dimen name="eight">8dp</dimen>
 
     <!-- navigation drawer -->
     <dimen name="navigation_drawer_header_padding_top">32dp</dimen>
