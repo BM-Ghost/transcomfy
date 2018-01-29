@@ -70,6 +70,8 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import static android.content.Context.LOCATION_SERVICE;
 
@@ -84,6 +86,11 @@ public class RequestFragment extends Fragment implements OnMapReadyCallback {
 
     private DataManager manager;
     private int REQUEST_STOP = 1;
+    private boolean inTransit = false;
+    private boolean canCalculate = true;
+    private Stop startStop;
+    private Stop endStop;
+    private Bus tripBus;
 
     public RequestFragment() {
 
@@ -188,35 +195,6 @@ public class RequestFragment extends Fragment implements OnMapReadyCallback {
 
             }
         }, Looper.getMainLooper());
-
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        database.getReference("buses")
-                .addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        /*googleMap.clear();
-                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                            if (snapshot.child("location").getValue() != null) {
-                                double latitude = snapshot.child("location").child("latitude").getValue(Double.class);
-                                double longitude = snapshot.child("location").child("longitude").getValue(Double.class);
-                                String name = snapshot.child("location").child("name").getValue(String.class);
-                                String numberPlate = snapshot.child("numberPlate").getValue(String.class);
-
-                                MarkerOptions options = new MarkerOptions();
-                                options.title(name);
-                                options.snippet(numberPlate);
-                                options.position(new LatLng(latitude, longitude));
-                                options.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_bus_marker_primary_dark_32dp));
-                                googleMap.addMarker(options);
-                            }
-                        }*/
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-
-                    }
-                });
     }
 
     @Override
@@ -224,8 +202,8 @@ public class RequestFragment extends Fragment implements OnMapReadyCallback {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_STOP) {
             if (resultCode == AppCompatActivity.RESULT_OK) {
-                Stop stop = data.getParcelableExtra(Keys.EXTRA_STOP);
-                tvSetDestination.setText(stop.getName());
+                endStop = data.getParcelableExtra(Keys.EXTRA_STOP);
+                tvSetDestination.setText(endStop.getName());
                 LocationManager locationManager = (LocationManager) getContext().getSystemService(LOCATION_SERVICE);
                 String provider = locationManager.getBestProvider(new Criteria(), true);
                 if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
@@ -241,7 +219,7 @@ public class RequestFragment extends Fragment implements OnMapReadyCallback {
 //                location.setLongitude(36.8045);
                 moveToLocation(location);
 
-                setStopsNearby(location, stop);
+                setStopsNearby(location, endStop);
             }
         }
     }
@@ -411,14 +389,25 @@ public class RequestFragment extends Fragment implements OnMapReadyCallback {
                         .addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(DataSnapshot dataSnapshot) {
+                                // Get a bus
+                                // Make a request
+                                // Use request to track bus arrival time
                                 Bus bus = null;
                                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                                     Bus temp = snapshot.getValue(Bus.class);
                                     temp.setId(snapshot.getKey());
-                                    if (temp.getLocation() != null && temp.getAvailableSpace() > 0) {
-                                        // check distance = stop position - bus position
-                                        calculateDistance(stop, temp);
+
+                                    if(dataSnapshot.getChildrenCount() == 0) {
+                                        bus = temp;
+                                    } else {
+                                        // TODO
+                                        // if bus distance is shorter than current
+                                        bus = temp;
                                     }
+                                }
+
+                                if (bus != null && bus.getLocation() != null && bus.getAvailableSpace() > 0) {
+                                    trackBus(stop, endStop, bus);
                                 }
                             }
 
@@ -431,7 +420,33 @@ public class RequestFragment extends Fragment implements OnMapReadyCallback {
         });
     }
 
-    private void calculateDistance(final Stop stop, final Bus bus) {
+    private void trackBus(final Stop start, final Stop stop, final Bus bus) {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        database.getReference("buses").child(bus.getId())
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        Bus selectedBus = dataSnapshot.getValue(Bus.class);
+                        selectedBus.setId(dataSnapshot.getKey());
+                        // check distance = stop position - bus position
+                        if(inTransit) {
+                            calculateTimeInTransit(start, stop, selectedBus);
+                        } else if(canCalculate) {
+                            calculateTime(start, selectedBus);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+    }
+
+    private void calculateTime(final Stop stop, final Bus bus) {
+        setCanCalculate(false);
+        this.startStop = stop;
+        this.tripBus = bus;
         RequestQueue queue = Volley.newRequestQueue(getContext());
 
         if(!Internet.isNetworkAvailable(getContext())){
@@ -448,12 +463,24 @@ public class RequestFragment extends Fragment implements OnMapReadyCallback {
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        MarkerOptions options = new MarkerOptions();
-                        options.title(bus.getLocation().getName());
-                        options.snippet(bus.getNumberPlate());
-                        options.position(new LatLng(bus.getLocation().getLatitude(), bus.getLocation().getLongitude()));
-                        options.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_bus_marker_primary_dark_32dp));
-                        googleMap.addMarker(options);
+                        googleMap.clear();
+
+                        MarkerOptions optionsBus = new MarkerOptions();
+                        optionsBus.title(bus.getLocation().getName());
+                        optionsBus.snippet(bus.getNumberPlate());
+                        optionsBus.position(new LatLng(bus.getLocation().getLatitude(), bus.getLocation().getLongitude()));
+                        optionsBus.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_bus_marker_primary_dark_32dp));
+                        googleMap.addMarker(optionsBus);
+
+                        MarkerOptions optionsStop = new MarkerOptions();
+                        optionsStop.title(stop.getName());
+                        optionsStop.position(new LatLng(stop.getLatitude(), stop.getLongitude()));
+                        optionsStop.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_directions_bus_green_18dp));
+                        googleMap.addMarker(optionsStop);
+
+                        LatLngBounds.Builder builder = new LatLngBounds.Builder();
+                        builder.include(optionsBus.getPosition()).include(optionsStop.getPosition());
+                        googleMap.animateCamera(CameraUpdateFactory.newLatLngBounds(builder.build(), 50));
 
                         try {
                             tvMessage.setText(
@@ -463,11 +490,78 @@ public class RequestFragment extends Fragment implements OnMapReadyCallback {
                                             .concat(response.getJSONArray("routes").getJSONObject(0).getJSONArray("legs").getJSONObject(0).getJSONObject("duration").getString("text"))
                                             .concat(getString(R.string.msg_bus_mins_away_2))
                             );
-                            request(bus, stop);
+                            // if not in transit
+                            if(!inTransit) {
+                                request(bus, stop);
+                            }
                         } catch (Exception e) {
                             tvMessage.setText(R.string.msg_no_bus_available);
                         }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
 
+                    }
+                }
+        ));
+        // if distance < 2km show estimate arrival time, number plate
+        // else show no bus available
+    }
+
+    private void calculateTimeInTransit(final Stop start, final Stop stop, final Bus bus) {
+        setCanCalculate(false);
+        RequestQueue queue = Volley.newRequestQueue(getContext());
+
+        if(!Internet.isNetworkAvailable(getContext())){
+            Toast.makeText(getContext(), R.string.msg_no_network, Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        String url = URLs.URL_DIRECTIONS
+                .concat("origin=").concat(String.valueOf(stop.getLatitude())).concat(",").concat(String.valueOf(stop.getLongitude()))
+                .concat("&destination=").concat(String.valueOf(bus.getLocation().getLatitude())).concat(",").concat(String.valueOf(bus.getLocation().getLongitude()))
+                .concat("&sensor=false");
+        queue.add(new JsonObjectRequest(
+                Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        googleMap.clear();
+
+                        MarkerOptions optionsStart = new MarkerOptions();
+                        optionsStart.title(start.getName());
+                        optionsStart.position(new LatLng(start.getLatitude(), start.getLongitude()));
+                        optionsStart.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_directions_bus_red_18dp));
+                        googleMap.addMarker(optionsStart);
+
+                        MarkerOptions optionsBus = new MarkerOptions();
+                        optionsBus.title(bus.getLocation().getName());
+                        optionsBus.snippet(bus.getNumberPlate());
+                        optionsBus.position(new LatLng(bus.getLocation().getLatitude(), bus.getLocation().getLongitude()));
+                        optionsBus.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_bus_marker_primary_dark_32dp));
+                        googleMap.addMarker(optionsBus);
+
+                        MarkerOptions optionsStop = new MarkerOptions();
+                        optionsStop.title(stop.getName());
+                        optionsStop.position(new LatLng(stop.getLatitude(), stop.getLongitude()));
+                        optionsStop.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_directions_bus_green_18dp));
+                        googleMap.addMarker(optionsStop);
+
+                        LatLngBounds.Builder builder = new LatLngBounds.Builder();
+                        builder.include(optionsBus.getPosition()).include(optionsStop.getPosition());
+                        googleMap.animateCamera(CameraUpdateFactory.newLatLngBounds(builder.build(), 50));
+
+                        try {
+                            tvMessage.setText(
+                                            "Your destination is\u0020"
+                                            .concat(response.getJSONArray("routes").getJSONObject(0).getJSONArray("legs").getJSONObject(0).getJSONObject("duration").getString("text"))
+                                            .concat(getString(R.string.msg_bus_mins_away_2))
+                            );
+                        } catch (Exception e) {
+                            tvMessage.setText(R.string.msg_no_bus_available);
+                        }
                     }
                 },
                 new Response.ErrorListener() {
@@ -501,6 +595,24 @@ public class RequestFragment extends Fragment implements OnMapReadyCallback {
                         String id = database.getReference().push().getKey();
                         database.getReference("buses").child(bus.getId()).child("requests").child(id).setValue(request);
                         database.getReference("drivers").child(bus.getDriverId()).child("bus").child("requests").child(id).setValue(request);
+
+                        FirebaseDatabase database1 = FirebaseDatabase.getInstance();
+                        database1.getReference("buses").child(bus.getId()).child("requests").child(id)
+                                .addValueEventListener(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                        com.transcomfy.data.model.Request request1 = dataSnapshot.getValue(com.transcomfy.data.model.Request.class);
+                                        request1.setId(dataSnapshot.getKey());
+
+                                        setInTransit(request1.getStatus().equalsIgnoreCase("APPROVED")
+                                                || request1.getStatus().equalsIgnoreCase("TRANSIT"));
+                                    }
+
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
+
+                                    }
+                                });
                     }
 
                     @Override
@@ -510,4 +622,24 @@ public class RequestFragment extends Fragment implements OnMapReadyCallback {
                 });
     }
 
+    public void setCanCalculate(boolean canCalculate) {
+        this.canCalculate = canCalculate;
+
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+                setCanCalculate(true);
+            }
+        };
+
+        Timer timer = new Timer();
+        timer.schedule(task, 15000);
+    }
+
+    public void setInTransit(boolean inTransit) {
+        this.inTransit = inTransit;
+        if(inTransit) {
+            calculateTimeInTransit(startStop, endStop, tripBus);
+        }
+    }
 }

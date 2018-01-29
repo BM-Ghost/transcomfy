@@ -5,41 +5,41 @@ import android.os.Parcelable;
 
 public class History implements Parcelable {
 
-    private String from;
-    private String to;
-    private double amount;
+    private String title;
+    private String description;
+    private String status;
     private long createdAt;
 
     public History(){
 
     }
 
-    public void setFrom(String from) {
-        this.from = from;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public void setTo(String to) {
-        this.to = to;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public void setAmount(double amount) {
-        this.amount = amount;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public void setCreatedAt(long createdAt) {
         this.createdAt = createdAt;
     }
 
-    public String getFrom() {
-        return from;
+    public String getTitle() {
+        return title;
     }
 
-    public String getTo() {
-        return to;
+    public String getDescription() {
+        return description;
     }
 
-    public double getAmount() {
-        return amount;
+    public String getStatus() {
+        return status;
     }
 
     public long getCreatedAt() {
@@ -47,9 +47,9 @@ public class History implements Parcelable {
     }
 
     public History(Parcel in){
-        from = in.readString();
-        to = in.readString();
-        amount = in.readDouble();
+        title = in.readString();
+        description = in.readString();
+        status = in.readString();
         createdAt = in.readLong();
     }
 
@@ -69,9 +69,9 @@ public class History implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(from);
-        dest.writeString(to);
-        dest.writeDouble(amount);
+        dest.writeString(title);
+        dest.writeString(description);
+        dest.writeString(status);
         dest.writeLong(createdAt);
     }
 
