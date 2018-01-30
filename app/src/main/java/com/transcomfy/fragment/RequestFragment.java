@@ -484,7 +484,7 @@ public class RequestFragment extends Fragment implements OnMapReadyCallback {
     private void trackBus(final Stop start, final Stop stop, final Bus bus) {
         // if not in request
         if(!inRequest) {
-            request(bus, stop);
+            request(bus, start);
         }
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();

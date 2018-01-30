@@ -8,11 +8,20 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="@@@" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45b42844-984b-4eae-876c-93a2e420b2b2" name="Default" comment="" />
+    <list default="true" id="45b42844-984b-4eae-876c-93a2e420b2b2" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/javaCompile.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/javaCompile.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/transcomfy/fragment/RequestFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/transcomfy/fragment/RequestFragment.java" />
+    </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -39,8 +48,8 @@
       <file leaf-file-name="RequestFragment.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/transcomfy/fragment/RequestFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="486" column="31" lean-forward="false" selection-start-line="486" selection-start-column="31" selection-end-line="486" selection-end-column="31" />
+            <state relative-caret-position="-1398">
+              <caret line="479" column="27" lean-forward="false" selection-start-line="479" selection-start-column="24" selection-end-line="479" selection-end-column="27" />
               <folding>
                 <element signature="e#4343#4376#0" expanded="true" />
                 <element signature="e#4893#5186#0" expanded="true" />
@@ -66,33 +75,33 @@
                 <element signature="e#24400#24401#0" expanded="true" />
                 <element signature="e#24419#24625#0" expanded="true" />
                 <element signature="e#24624#24625#0" expanded="true" />
-                <element signature="e#25869#25870#0" expanded="true" />
-                <element signature="e#25928#25929#0" expanded="true" />
-                <element signature="e#26307#26330#0" expanded="true" />
-                <element signature="e#26903#29058#0" expanded="true" />
-                <element signature="e#28412#28451#0" expanded="true" />
-                <element signature="e#28832#28871#0" expanded="true" />
-                <element signature="e#29057#29058#0" expanded="true" />
-                <element signature="e#29076#29282#0" expanded="true" />
-                <element signature="e#29281#29282#0" expanded="true" />
-                <element signature="e#29591#29614#0" expanded="true" />
-                <element signature="e#30168#32623#0" expanded="true" />
-                <element signature="e#32402#32441#0" expanded="true" />
-                <element signature="e#32622#32623#0" expanded="true" />
-                <element signature="e#32641#32847#0" expanded="true" />
-                <element signature="e#32846#32847#0" expanded="true" />
-                <element signature="e#33839#33881#0" expanded="true" />
-                <element signature="e#35922#35960#0" expanded="true" />
-                <element signature="e#36434#36435#0" expanded="true" />
-                <element signature="e#36493#36494#0" expanded="true" />
-                <element signature="e#36570#36571#0" expanded="true" />
-                <element signature="e#36612#36613#0" expanded="true" />
-                <element signature="e#36739#37076#0" expanded="true" />
-                <element signature="e#37075#37076#0" expanded="true" />
-                <element signature="e#37451#37478#0" expanded="true" />
-                <element signature="e#37813#37840#0" expanded="true" />
-                <element signature="e#37887#38180#0" expanded="true" />
-                <element signature="e#38179#38180#0" expanded="true" />
+                <element signature="e#25870#25871#0" expanded="true" />
+                <element signature="e#25929#25930#0" expanded="true" />
+                <element signature="e#26308#26331#0" expanded="true" />
+                <element signature="e#26904#29059#0" expanded="true" />
+                <element signature="e#28413#28452#0" expanded="true" />
+                <element signature="e#28833#28872#0" expanded="true" />
+                <element signature="e#29058#29059#0" expanded="true" />
+                <element signature="e#29077#29283#0" expanded="true" />
+                <element signature="e#29282#29283#0" expanded="true" />
+                <element signature="e#29592#29615#0" expanded="true" />
+                <element signature="e#30169#32624#0" expanded="true" />
+                <element signature="e#32403#32442#0" expanded="true" />
+                <element signature="e#32623#32624#0" expanded="true" />
+                <element signature="e#32642#32848#0" expanded="true" />
+                <element signature="e#32847#32848#0" expanded="true" />
+                <element signature="e#33840#33882#0" expanded="true" />
+                <element signature="e#35923#35961#0" expanded="true" />
+                <element signature="e#36435#36436#0" expanded="true" />
+                <element signature="e#36494#36495#0" expanded="true" />
+                <element signature="e#36571#36572#0" expanded="true" />
+                <element signature="e#36613#36614#0" expanded="true" />
+                <element signature="e#36740#37077#0" expanded="true" />
+                <element signature="e#37076#37077#0" expanded="true" />
+                <element signature="e#37452#37479#0" expanded="true" />
+                <element signature="e#37814#37841#0" expanded="true" />
+                <element signature="e#37888#38181#0" expanded="true" />
+                <element signature="e#38180#38181#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -2454,7 +2463,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1517289088213" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1517315871723" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2502,7 +2511,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1517289088213" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1517315871723" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2685,7 +2694,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1517289088216" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1517315871724" />
       </method>
     </configuration>
     <list size="1">
@@ -2742,6 +2751,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287841" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -2753,7 +2763,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25186104" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25186104" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5272953" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -3271,8 +3281,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/transcomfy/fragment/RequestFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="486" column="31" lean-forward="false" selection-start-line="486" selection-start-column="31" selection-end-line="486" selection-end-column="31" />
+        <state relative-caret-position="-1398">
+          <caret line="479" column="27" lean-forward="false" selection-start-line="479" selection-start-column="24" selection-end-line="479" selection-end-column="27" />
           <folding>
             <element signature="e#4343#4376#0" expanded="true" />
             <element signature="e#4893#5186#0" expanded="true" />
@@ -3298,33 +3308,33 @@
             <element signature="e#24400#24401#0" expanded="true" />
             <element signature="e#24419#24625#0" expanded="true" />
             <element signature="e#24624#24625#0" expanded="true" />
-            <element signature="e#25869#25870#0" expanded="true" />
-            <element signature="e#25928#25929#0" expanded="true" />
-            <element signature="e#26307#26330#0" expanded="true" />
-            <element signature="e#26903#29058#0" expanded="true" />
-            <element signature="e#28412#28451#0" expanded="true" />
-            <element signature="e#28832#28871#0" expanded="true" />
-            <element signature="e#29057#29058#0" expanded="true" />
-            <element signature="e#29076#29282#0" expanded="true" />
-            <element signature="e#29281#29282#0" expanded="true" />
-            <element signature="e#29591#29614#0" expanded="true" />
-            <element signature="e#30168#32623#0" expanded="true" />
-            <element signature="e#32402#32441#0" expanded="true" />
-            <element signature="e#32622#32623#0" expanded="true" />
-            <element signature="e#32641#32847#0" expanded="true" />
-            <element signature="e#32846#32847#0" expanded="true" />
-            <element signature="e#33839#33881#0" expanded="true" />
-            <element signature="e#35922#35960#0" expanded="true" />
-            <element signature="e#36434#36435#0" expanded="true" />
-            <element signature="e#36493#36494#0" expanded="true" />
-            <element signature="e#36570#36571#0" expanded="true" />
-            <element signature="e#36612#36613#0" expanded="true" />
-            <element signature="e#36739#37076#0" expanded="true" />
-            <element signature="e#37075#37076#0" expanded="true" />
-            <element signature="e#37451#37478#0" expanded="true" />
-            <element signature="e#37813#37840#0" expanded="true" />
-            <element signature="e#37887#38180#0" expanded="true" />
-            <element signature="e#38179#38180#0" expanded="true" />
+            <element signature="e#25870#25871#0" expanded="true" />
+            <element signature="e#25929#25930#0" expanded="true" />
+            <element signature="e#26308#26331#0" expanded="true" />
+            <element signature="e#26904#29059#0" expanded="true" />
+            <element signature="e#28413#28452#0" expanded="true" />
+            <element signature="e#28833#28872#0" expanded="true" />
+            <element signature="e#29058#29059#0" expanded="true" />
+            <element signature="e#29077#29283#0" expanded="true" />
+            <element signature="e#29282#29283#0" expanded="true" />
+            <element signature="e#29592#29615#0" expanded="true" />
+            <element signature="e#30169#32624#0" expanded="true" />
+            <element signature="e#32403#32442#0" expanded="true" />
+            <element signature="e#32623#32624#0" expanded="true" />
+            <element signature="e#32642#32848#0" expanded="true" />
+            <element signature="e#32847#32848#0" expanded="true" />
+            <element signature="e#33840#33882#0" expanded="true" />
+            <element signature="e#35923#35961#0" expanded="true" />
+            <element signature="e#36435#36436#0" expanded="true" />
+            <element signature="e#36494#36495#0" expanded="true" />
+            <element signature="e#36571#36572#0" expanded="true" />
+            <element signature="e#36613#36614#0" expanded="true" />
+            <element signature="e#36740#37077#0" expanded="true" />
+            <element signature="e#37076#37077#0" expanded="true" />
+            <element signature="e#37452#37479#0" expanded="true" />
+            <element signature="e#37814#37841#0" expanded="true" />
+            <element signature="e#37888#38181#0" expanded="true" />
+            <element signature="e#38180#38181#0" expanded="true" />
           </folding>
         </state>
       </provider>
