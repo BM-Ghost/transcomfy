@@ -482,6 +482,11 @@ public class RequestFragment extends Fragment implements OnMapReadyCallback {
     }
 
     private void trackBus(final Stop start, final Stop stop, final Bus bus) {
+        // if not in request
+        if(!inRequest) {
+            request(bus, stop);
+        }
+
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         database.getReference("buses").child(bus.getId())
                 .addValueEventListener(new ValueEventListener() {
@@ -509,11 +514,63 @@ public class RequestFragment extends Fragment implements OnMapReadyCallback {
         this.startStop = stop;
         this.tripBus = bus;
 
+        // calculating fare
+        RequestQueue queue = Volley.newRequestQueue(getContext());
 
-        // if not in request
-        if(!inRequest) {
-            request(bus, stop);
+        if(!Internet.isNetworkAvailable(getContext())){
+            Toast.makeText(getContext(), R.string.msg_no_network, Toast.LENGTH_SHORT).show();
+            error(null);
+            return;
         }
+
+        String url = URLs.URL_DIRECTIONS
+                .concat("origin=").concat(String.valueOf(stop.getLatitude())).concat(",").concat(String.valueOf(stop.getLongitude()))
+                .concat("&destination=").concat(String.valueOf(bus.getLocation().getLatitude())).concat(",").concat(String.valueOf(bus.getLocation().getLongitude()))
+                .concat("&sensor=false");
+        queue.add(new JsonObjectRequest(
+                Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        googleMap.clear();
+
+                        MarkerOptions optionsBus = new MarkerOptions();
+                        optionsBus.title(bus.getLocation().getName());
+                        optionsBus.snippet(bus.getNumberPlate());
+                        optionsBus.position(new LatLng(bus.getLocation().getLatitude(), bus.getLocation().getLongitude()));
+                        optionsBus.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_bus_marker_primary_dark_32dp));
+                        googleMap.addMarker(optionsBus);
+
+                        MarkerOptions optionsStop = new MarkerOptions();
+                        optionsStop.title(stop.getName());
+                        optionsStop.position(new LatLng(stop.getLatitude(), stop.getLongitude()));
+                        optionsStop.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_directions_bus_green_18dp));
+                        googleMap.addMarker(optionsStop);
+
+                        LatLngBounds.Builder builder = new LatLngBounds.Builder();
+                        builder.include(optionsBus.getPosition()).include(optionsStop.getPosition());
+                        googleMap.animateCamera(CameraUpdateFactory.newLatLngBounds(builder.build(), 50));
+
+                        try {
+                            tvMessage.setText(
+                                    getString(R.string.msg_bus_mins_away_1)
+                                            .concat(bus.getNumberPlate())
+                                            .concat("\u0020is\u0020")
+                                            .concat(response.getJSONArray("routes").getJSONObject(0).getJSONArray("legs").getJSONObject(0).getJSONObject("duration").getString("text"))
+                                            .concat(getString(R.string.msg_bus_mins_away_2))
+                            );
+                        } catch (Exception e) {
+                            error(null);
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        error(null);
+                    }
+                }
+        ));
     }
 
     private void calculateTimeInTransit(final Stop start, final Stop stop, final Bus bus) {
@@ -634,64 +691,6 @@ public class RequestFragment extends Fragment implements OnMapReadyCallback {
                                         error(null);
                                     }
                                 });
-
-                        // calculating fare
-                        RequestQueue queue = Volley.newRequestQueue(getContext());
-
-                        if(!Internet.isNetworkAvailable(getContext())){
-                            Toast.makeText(getContext(), R.string.msg_no_network, Toast.LENGTH_SHORT).show();
-                            error(null);
-                            return;
-                        }
-
-                        String url = URLs.URL_DIRECTIONS
-                                .concat("origin=").concat(String.valueOf(stop.getLatitude())).concat(",").concat(String.valueOf(stop.getLongitude()))
-                                .concat("&destination=").concat(String.valueOf(bus.getLocation().getLatitude())).concat(",").concat(String.valueOf(bus.getLocation().getLongitude()))
-                                .concat("&sensor=false");
-                        queue.add(new JsonObjectRequest(
-                                Request.Method.GET, url, null,
-                                new Response.Listener<JSONObject>() {
-                                    @Override
-                                    public void onResponse(JSONObject response) {
-                                        googleMap.clear();
-
-                                        MarkerOptions optionsBus = new MarkerOptions();
-                                        optionsBus.title(bus.getLocation().getName());
-                                        optionsBus.snippet(bus.getNumberPlate());
-                                        optionsBus.position(new LatLng(bus.getLocation().getLatitude(), bus.getLocation().getLongitude()));
-                                        optionsBus.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_bus_marker_primary_dark_32dp));
-                                        googleMap.addMarker(optionsBus);
-
-                                        MarkerOptions optionsStop = new MarkerOptions();
-                                        optionsStop.title(stop.getName());
-                                        optionsStop.position(new LatLng(stop.getLatitude(), stop.getLongitude()));
-                                        optionsStop.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_directions_bus_green_18dp));
-                                        googleMap.addMarker(optionsStop);
-
-                                        LatLngBounds.Builder builder = new LatLngBounds.Builder();
-                                        builder.include(optionsBus.getPosition()).include(optionsStop.getPosition());
-                                        googleMap.animateCamera(CameraUpdateFactory.newLatLngBounds(builder.build(), 50));
-
-                                        try {
-                                            tvMessage.setText(
-                                                    getString(R.string.msg_bus_mins_away_1)
-                                                            .concat(bus.getNumberPlate())
-                                                            .concat("\u0020is\u0020")
-                                                            .concat(response.getJSONArray("routes").getJSONObject(0).getJSONArray("legs").getJSONObject(0).getJSONObject("duration").getString("text"))
-                                                            .concat(getString(R.string.msg_bus_mins_away_2))
-                                            );
-                                        } catch (Exception e) {
-                                            error(null);
-                                        }
-                                    }
-                                },
-                                new Response.ErrorListener() {
-                                    @Override
-                                    public void onErrorResponse(VolleyError error) {
-                                        error(null);
-                                    }
-                                }
-                        ));
                     }
 
                     @Override
