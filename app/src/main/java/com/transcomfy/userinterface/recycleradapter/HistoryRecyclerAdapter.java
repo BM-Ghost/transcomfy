@@ -37,7 +37,7 @@ public class HistoryRecyclerAdapter extends RecyclerView.Adapter<HistoryRecycler
         holder.tvTitle.setText(history.getTitle());
         holder.tvDescription.setText(history.getDescription());
         Date date = new Date(history.getCreatedAt());
-        holder.tvCreatedAt.setText(new SimpleDateFormat("EEE dd MMM").format(date));
+        holder.tvCreatedAt.setText(new SimpleDateFormat("EEE dd MMM HH:mm").format(date));
     }
 
     @Override

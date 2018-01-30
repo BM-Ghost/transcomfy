@@ -34,7 +34,7 @@ public class PaymentHistoryRecyclerAdapter extends RecyclerView.Adapter<PaymentH
     public void onBindViewHolder(ViewHolder holder, int position) {
         final Payment payment = payments.get(position);
         holder.tvCreatedAt.setText(payment.getCreatedAt());
-        holder.tvAmount.setText("KSH ".concat(payment.getAmount()));
+        holder.tvAmount.setText(payment.getAmount());
     }
 
     @Override

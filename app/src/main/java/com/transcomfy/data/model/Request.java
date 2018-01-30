@@ -9,6 +9,10 @@ public class Request implements Parcelable {
     private String name;
     private String status;
     private Location location;
+    private double fare;
+    private double currentBalance;
+    private String from;
+    private String to;
 
     public Request(){
 
@@ -30,6 +34,22 @@ public class Request implements Parcelable {
         this.location = location;
     }
 
+    public void setFare(double fare) {
+        this.fare = fare;
+    }
+
+    public void setCurrentBalance(double currentBalance) {
+        this.currentBalance = currentBalance;
+    }
+
+    public void setFrom(String from) {
+        this.from = from;
+    }
+
+    public void setTo(String to) {
+        this.to = to;
+    }
+
     public String getId() {
         return id;
     }
@@ -46,11 +66,31 @@ public class Request implements Parcelable {
         return location;
     }
 
+    public double getFare() {
+        return fare;
+    }
+
+    public double getCurrentBalance() {
+        return currentBalance;
+    }
+
+    public String getFrom() {
+        return from;
+    }
+
+    public String getTo() {
+        return to;
+    }
+
     public Request(Parcel in){
         id = in.readString();
         name = in.readString();
         status = in.readString();
         location = in.readParcelable(Location.class.getClassLoader());
+        fare = in.readDouble();
+        currentBalance = in.readDouble();
+        from = in.readString();
+        to = in.readString();
     }
 
     public static final Creator CREATOR = new Creator() {
@@ -73,6 +113,10 @@ public class Request implements Parcelable {
         dest.writeString(name);
         dest.writeString(status);
         dest.writeParcelable(location, flags);
+        dest.writeDouble(fare);
+        dest.writeDouble(currentBalance);
+        dest.writeString(from);
+        dest.writeString(to);
     }
 
 }

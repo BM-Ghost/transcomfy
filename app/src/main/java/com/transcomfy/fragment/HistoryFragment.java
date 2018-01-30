@@ -71,7 +71,7 @@ public class HistoryFragment extends Fragment {
                         rvHistory.getAdapter().notifyDataSetChanged();
                         for(DataSnapshot snapshot : dataSnapshot.getChildren()) {
                             History history = snapshot.getValue(History.class);
-                            histories.add(history);
+                            histories.add(0, history);
                             rvHistory.getAdapter().notifyDataSetChanged();
                         }
                     }

@@ -103,7 +103,8 @@ public class TopUpAccountActivity extends AppCompatActivity {
         FirebaseAuth auth = FirebaseAuth.getInstance();
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         String id = database.getReference().push().getKey();
-        database.getReference("users").child(auth.getUid()).child("billing").child("paymentHistory").child(id).child("amount").setValue(Double.parseDouble(amount));
+        String amt = "Top up Ksh ".concat(String.valueOf(amount)).concat(" via MPESA Online");
+        database.getReference("users").child(auth.getUid()).child("billing").child("paymentHistory").child(id).child("amount").setValue(amt);
         database.getReference("users").child(auth.getUid()).child("billing").child("paymentHistory").child(id).child("createdAt").setValue(createdAt);
         double newBalance = balance + Double.parseDouble(amount);
         database.getReference("users").child(auth.getUid()).child("billing").child("balance").setValue(newBalance);

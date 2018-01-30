@@ -62,6 +62,9 @@
     <string name="msg_no_bus_available">No bus available</string>
     <string name="msg_bus_mins_away_1">Bus\u0020</string>
     <string name="msg_bus_mins_away_2">\u0020away</string>
+    <string name="msg_calculating_route">Calculating route\u2026</string>
+    <string name="msg_try_again">Try again</string>
+    <string name="msg_insufficient_funds">Insufficient funds, top up and try again</string>
 
     <!-- toolbars -->
     <string name="tb_pending_requests">Pending requests</string>

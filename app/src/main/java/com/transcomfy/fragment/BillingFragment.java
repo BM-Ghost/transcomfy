@@ -29,7 +29,6 @@ import com.transcomfy.data.Keys;
 import com.transcomfy.data.model.Payment;
 import com.transcomfy.userinterface.recycleradapter.PaymentHistoryRecyclerAdapter;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -89,16 +88,15 @@ public class BillingFragment extends Fragment {
                         rvTopUpHistory.getAdapter().notifyDataSetChanged();
                         DataSnapshot snapshot = dataSnapshot.child("paymentHistory");
                         for(DataSnapshot snap : snapshot.getChildren()) {
-                            if(snap.child("createdAt").getValue(Long.class) != null
-                                    && snap.child("amount").getValue(Double.class) != null) {
+                            if(snap.child("createdAt").getValue(Long.class) != null) {
                                 long createdAt = snap.child("createdAt").getValue(Long.class);
-                                double amount = snap.child("amount").getValue(Double.class);
+                                String amount = snap.child("amount").getValue(String.class);
 
                                 Payment payment = new Payment();
                                 Date date = new Date(createdAt);
                                 payment.setCreatedAt(new SimpleDateFormat("EEE dd MMM yyyy HH:mm").format(date));
                                 payment.setAmount(String.valueOf(amount));
-                                payments.add(payment);
+                                payments.add(0, payment);
                                 rvTopUpHistory.getAdapter().notifyDataSetChanged();
                             }
                         }
