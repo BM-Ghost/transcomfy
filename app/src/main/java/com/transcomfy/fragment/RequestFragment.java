@@ -244,9 +244,9 @@ public class RequestFragment extends Fragment implements OnMapReadyCallback {
             return;
         }
 
-        String url = URLs.URL_STOPS
-                .concat("?latitude=").concat(String.valueOf(location.getLatitude()))
-                .concat("&longitude=").concat(String.valueOf(location.getLongitude()));
+        String url = URLs.URL_STOPS;
+                //.concat("?latitude=").concat(String.valueOf(location.getLatitude()))
+                //.concat("&longitude=").concat(String.valueOf(location.getLongitude()));
 
         JsonArrayRequest request = new JsonArrayRequest(
                 Request.Method.GET, url, null,
