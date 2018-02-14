@@ -19,6 +19,11 @@
             android:title="@string/act_history"
             android:icon="@drawable/ic_history_black_24dp"/>
 
+        <item
+            android:id="@+id/action_log_out"
+            android:title="@string/act_log_out"
+            android:icon="@drawable/ic_log_out_black_24dp"/>
+
     </group>
 
 </menu>

@@ -80,6 +80,10 @@ public class HomeActivity extends AppCompatActivity {
                         history();
                         break;
 
+                    case R.id.action_log_out:
+                        logOut();
+                        break;
+
                     default:
                         request();
 
