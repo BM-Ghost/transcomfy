@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.arimorty:floatingsearchview:2.1.1@aar">
+    <ANNOTATIONS>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/9745925ccbe27beb73131c2bba478047/transformed/jetified-floatingsearchview-2.1.1/annotations.zip!/" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/9745925ccbe27beb73131c2bba478047/transformed/jetified-floatingsearchview-2.1.1/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/9745925ccbe27beb73131c2bba478047/transformed/jetified-floatingsearchview-2.1.1/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/9745925ccbe27beb73131c2bba478047/transformed/jetified-floatingsearchview-2.1.1/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.arimorty/floatingsearchview/2.1.1/5af5c30598fc2a62289e6870cf51cf8aea0ccc48/floatingsearchview-2.1.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

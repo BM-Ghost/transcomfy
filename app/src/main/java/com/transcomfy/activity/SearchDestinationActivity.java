@@ -1,13 +1,14 @@
 package com.transcomfy.activity;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
@@ -64,7 +65,7 @@ public class SearchDestinationActivity extends AppCompatActivity {
         fsvSearchDestination.setOnQueryChangeListener(new FloatingSearchView.OnQueryChangeListener() {
             @Override
             public void onSearchTextChanged(String oldQuery, String newQuery) {
-                if(newQuery.length() > 1) {
+                if (newQuery.length() > 1) {
                     setSearchDestination(URLs.URL_STOPS.concat("?search=").concat(newQuery));
                 } else {
                     setSearchDestination(URLs.URL_STOPS);
@@ -95,7 +96,7 @@ public class SearchDestinationActivity extends AppCompatActivity {
         srlSearchDestination.setRefreshing(true);
         queue = Volley.newRequestQueue(SearchDestinationActivity.this);
 
-        if(!Internet.isNetworkAvailable(SearchDestinationActivity.this)){
+        if (!Internet.isNetworkAvailable(SearchDestinationActivity.this)) {
             Toast.makeText(SearchDestinationActivity.this, R.string.msg_no_network, Toast.LENGTH_SHORT).show();
             return;
         }
@@ -108,18 +109,18 @@ public class SearchDestinationActivity extends AppCompatActivity {
                         stops.clear();
                         rvSearchDestination.getAdapter().notifyDataSetChanged();
                         try {
-                            if(routesData.length() > 0){
-                                for(int i = 0; i < routesData.length(); i++){
+                            if (routesData.length() > 0) {
+                                for (int i = 0; i < routesData.length(); i++) {
                                     Stop stop = manager.getStop(routesData.getJSONObject(i));
-                                    if(stop != null){
+                                    if (stop != null) {
                                         stops.add(stop);
                                         rvSearchDestination.getAdapter().notifyDataSetChanged();
                                     }
                                 }
-                                if(stops.size() == 0){
+                                if (stops.size() == 0) {
                                     throw new Exception();
                                 }
-                            }else{
+                            } else {
                                 throw new Exception();
                             }
                         } catch (Exception e) {

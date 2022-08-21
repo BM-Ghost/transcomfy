@@ -1,16 +1,16 @@
 package com.transcomfy.userinterface.recycleradapter;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.transcomfy.R;
 import com.transcomfy.data.model.Payment;
-import com.transcomfy.data.model.Request;
 
 import java.util.List;
 

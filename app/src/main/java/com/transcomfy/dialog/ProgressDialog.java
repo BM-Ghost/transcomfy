@@ -2,8 +2,9 @@ package com.transcomfy.dialog;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatDialog;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatDialog;
 
 import com.transcomfy.R;
 
