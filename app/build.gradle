@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 32
     defaultConfig {
-        applicationId "com.transcomfy.transcomfy"
+        applicationId "com.vinwil.vinwil"
         minSdkVersion 19
         targetSdkVersion 32
         versionCode 1
