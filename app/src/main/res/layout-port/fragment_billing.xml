@@ -15,52 +15,52 @@
         android:layout_height="wrap_content">
 
         <RelativeLayout
+            android:id="@+id/rl_balance"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:id="@+id/rl_balance"
             android:background="@color/color_accent">
 
             <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/civ_avatar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/civ_avatar"
+                android:layout_centerInParent="true"
                 android:layout_gravity="center_horizontal"
-                android:src="@drawable/ic_dollar_brown_48dp"
                 android:contentDescription="@string/img_description"
-                android:layout_centerInParent="true"/>
+                android:src="@drawable/ic_dollar_brown_48dp" />
 
             <TextView
+                android:id="@+id/tv_your_balance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/tv_your_balance"
-                android:text="@string/tv_your_balance"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_secondary"
-                android:textAllCaps="true"
+                android:layout_below="@+id/civ_avatar"
+                android:gravity="center"
+                android:paddingStart="@dimen/view_padding_medium"
+                android:paddingLeft="@dimen/view_padding_medium"
                 android:paddingTop="@dimen/view_padding_medium"
+                android:paddingEnd="@dimen/view_padding_medium"
+                android:paddingRight="@dimen/view_padding_medium"
+                android:text="@string/tv_your_balance"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_secondary" />
+
+            <TextView
+                android:id="@+id/tv_balance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_your_balance"
+                android:gravity="center"
                 android:paddingStart="@dimen/view_padding_medium"
                 android:paddingLeft="@dimen/view_padding_medium"
                 android:paddingEnd="@dimen/view_padding_medium"
                 android:paddingRight="@dimen/view_padding_medium"
-                android:layout_below="@+id/civ_avatar"
-                android:gravity="center"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/tv_balance"
-                android:text="@string/tv_app_name"
+                android:paddingBottom="@dimen/view_padding_medium"
+                android:text="Vinwil driver"
+                android:textAllCaps="true"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_primary"
-                android:textStyle="bold"
-                android:textAllCaps="true"
-                android:paddingBottom="@dimen/view_padding_medium"
-                android:paddingStart="@dimen/view_padding_medium"
-                android:paddingLeft="@dimen/view_padding_medium"
-                android:paddingEnd="@dimen/view_padding_medium"
-                android:paddingRight="@dimen/view_padding_medium"
-                android:layout_below="@+id/tv_your_balance"
-                android:gravity="center"/>
+                android:textStyle="bold" />
 
         </RelativeLayout>
 

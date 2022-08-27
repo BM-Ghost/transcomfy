@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MeshackProject2.iml" filepath="$PROJECT_DIR$/.idea/modules/MeshackProject2.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/MeshackProject2.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/MeshackProject2.app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/MeshackProject2.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/MeshackProject2.app.androidTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/MeshackProject2.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/MeshackProject2.app.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/MeshackProject2.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/MeshackProject2.app.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Vinwil_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Vinwil_test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Vinwil_test.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Vinwil_test.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Vinwil_test.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Vinwil_test.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Vinwil_test.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Vinwil_test.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Vinwil_test.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Vinwil_test.app.unitTest.iml" />
     </modules>
   </component>
 </project>

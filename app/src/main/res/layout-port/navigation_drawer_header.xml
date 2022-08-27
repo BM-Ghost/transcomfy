@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/tv_name"
-        android:text="@string/app_name"
+        android:text="Vinwil"
         android:textColor="@color/white"
         android:textSize="@dimen/text_primary"
         android:layout_marginStart="@dimen/view_margin_large"

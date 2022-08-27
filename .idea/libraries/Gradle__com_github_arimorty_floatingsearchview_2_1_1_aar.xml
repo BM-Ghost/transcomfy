@@ -2,11 +2,15 @@
   <library name="Gradle: com.github.arimorty:floatingsearchview:2.1.1@aar">
     <ANNOTATIONS>
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/9745925ccbe27beb73131c2bba478047/transformed/jetified-floatingsearchview-2.1.1/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/31a81bf5f216bb1d354933b4d09e61dc/transformed/jetified-floatingsearchview-2.1.1/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/9745925ccbe27beb73131c2bba478047/transformed/jetified-floatingsearchview-2.1.1/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/9745925ccbe27beb73131c2bba478047/transformed/jetified-floatingsearchview-2.1.1/AndroidManifest.xml" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/9745925ccbe27beb73131c2bba478047/transformed/jetified-floatingsearchview-2.1.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/31a81bf5f216bb1d354933b4d09e61dc/transformed/jetified-floatingsearchview-2.1.1/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/31a81bf5f216bb1d354933b4d09e61dc/transformed/jetified-floatingsearchview-2.1.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/31a81bf5f216bb1d354933b4d09e61dc/transformed/jetified-floatingsearchview-2.1.1/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
