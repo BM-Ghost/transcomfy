@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.transcomfy">
+    package="com.vinwil">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name="com.transcomfy.application.Transcomfy"
+        android:name="com.vinwil.application.Transcomfy"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -20,7 +20,7 @@
             android:value="AIzaSyC7c_xTdIvyLPmJA3ZWvXhGMmBLXHoJKl4"/>
 
         <activity
-            android:name="com.transcomfy.activity.MainActivity"
+            android:name="com.vinwil.activity.MainActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"
             android:exported="true">
@@ -32,32 +32,32 @@
         </activity>
 
         <activity
-            android:name="com.transcomfy.activity.SignUpActivity"
+            android:name="com.vinwil.activity.SignUpActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"/>
 
         <activity
-            android:name="com.transcomfy.activity.HomeActivity"
+            android:name="com.vinwil.activity.HomeActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"/>
 
         <activity
-            android:name="com.transcomfy.activity.AvailSpaceActivity"
+            android:name="com.vinwil.activity.AvailSpaceActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"/>
 
         <activity
-            android:name="com.transcomfy.activity.PendingRequestsActivity"
+            android:name="com.vinwil.activity.PendingRequestsActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"/>
 
         <activity
-            android:name="com.transcomfy.activity.TopUpAccountActivity"
+            android:name="com.vinwil.activity.TopUpAccountActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"/>
 
         <activity
-            android:name="com.transcomfy.activity.SearchDestinationActivity"
+            android:name="com.vinwil.activity.SearchDestinationActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"/>
 
