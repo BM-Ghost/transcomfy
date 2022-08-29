@@ -43,6 +43,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="45b42844-984b-4eae-876c-93a2e420b2b2" name="Default" comment="Build Changes">
       <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_multidex_multidex_2_0_1_aar.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_multidex_multidex_instrumentation_2_0_0_aar.xml" afterDir="false" />
@@ -70,13 +71,94 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+=======
+    <list default="true" id="45b42844-984b-4eae-876c-93a2e420b2b2" name="Default" comment="Added time estimation to request and creating new pending requests">
+      <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_bartoszlipinski_viewpropertyobjectanimator_1_2_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_bartoszlipinski_viewpropertyobjectanimator_1_2_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_arimorty_floatingsearchview_2_1_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_arimorty_floatingsearchview_2_1_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__junit_junit_4_12.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__junit_junit_4_12.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__junit_junit_4_13_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__junit_junit_4_13_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/MeshackProject2.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/MeshackProject2.app.androidTest.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/MeshackProject2.app.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/MeshackProject2.app.main.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/MeshackProject2.app.unitTest.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/transcomfy/transcomfydriver/ExampleInstrumentedTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/vinwil/vinwildriver/ExampleInstrumentedTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/transcomfy/activity/AvailSpaceActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/vinwil/activity/AvailSpaceActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/transcomfy/activity/HomeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/vinwil/activity/HomeActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/transcomfy/activity/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/vinwil/activity/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/transcomfy/activity/PendingRequestsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/vinwil/activity/PendingRequestsActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/transcomfy/activity/SearchDestinationActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/vinwil/activity/SearchDestinationActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/transcomfy/activity/SignUpActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/vinwil/activity/SignUpActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/transcomfy/activity/TopUpAccountActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/vinwil/activity/TopUpAccountActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/transcomfy/application/Transcomfy.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/vinwil/application/Transcomfy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/transcomfy/data/DataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/vinwil/data/DataManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/transcomfy/data/Keys.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/vinwil/data/Keys.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/transcomfy/data/model/Bus.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/vinwil/data/model/Bus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/transcomfy/data/model/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/vinwil/data/model/Driver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/transcomfy/data/model/History.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/vinwil/data/model/History.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/transcomfy/data/model/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/vinwil/data/model/Location.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/transcomfy/data/model/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/vinwil/data/model/Payment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/transcomfy/data/model/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/vinwil/data/model/Request.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/transcomfy/data/model/Stop.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/vinwil/data/model/Stop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/transcomfy/dialog/ProgressDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/vinwil/dialog/ProgressDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/transcomfy/fragment/BillingFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/vinwil/fragment/BillingFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/transcomfy/fragment/HistoryFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/vinwil/fragment/HistoryFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/transcomfy/fragment/RequestFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/vinwil/fragment/RequestFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/transcomfy/internet/Internet.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/vinwil/internet/Internet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/transcomfy/internet/URLs.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/vinwil/internet/URLs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/transcomfy/location/GMapV2Direction.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/vinwil/location/GMapV2Direction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/transcomfy/userinterface/recycleradapter/HistoryRecyclerAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/vinwil/userinterface/recycleradapter/HistoryRecyclerAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/transcomfy/userinterface/recycleradapter/PaymentHistoryRecyclerAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/vinwil/userinterface/recycleradapter/PaymentHistoryRecyclerAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/transcomfy/userinterface/recycleradapter/PendingRequestsRecyclerAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/vinwil/userinterface/recycleradapter/PendingRequestsRecyclerAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/transcomfy/userinterface/recycleradapter/SearchDestinationRecyclerAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/vinwil/userinterface/recycleradapter/SearchDestinationRecyclerAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/img_logo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout-port/button_avail_space.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout-port/button_avail_space.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout-port/fragment_billing.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout-port/fragment_billing.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout-port/navigation_drawer_header.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout-port/navigation_drawer_header.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout-port/recycler_adapter_history.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout-port/recycler_adapter_history.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout-port/recycler_adapter_payment_history.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout-port/recycler_adapter_payment_history.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout-port/recycler_adapter_pending_requests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout-port/recycler_adapter_pending_requests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/transcomfy/transcomfydriver/ExampleUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/com/vinwil/vinwildriver/ExampleUnitTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
+>>>>>>> c79f9d6707b551a23e26b4dbb2813252c361f377
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< HEAD
   <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\Meshark\.android\avd\Pixel_3_XL_API_31.avd]" />
+=======
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\Meshark\.android\avd\Pixel_4_API_30.avd]" />
+>>>>>>> c79f9d6707b551a23e26b4dbb2813252c361f377
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -322,7 +404,11 @@
       </method>
     </configuration>
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
+<<<<<<< HEAD
       <module name="transcomfy.app.main" />
+=======
+      <module name="Vinwil_test.app.main" />
+>>>>>>> c79f9d6707b551a23e26b4dbb2813252c361f377
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
       <option name="DEPLOY_AS_INSTANT" value="false" />
@@ -543,7 +629,11 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Added time estimation to request and creating new pending requests" />
+<<<<<<< HEAD
     <MESSAGE value="Build Changes" />
     <option name="LAST_COMMIT_MESSAGE" value="Build Changes" />
+=======
+    <option name="LAST_COMMIT_MESSAGE" value="Added time estimation to request and creating new pending requests" />
+>>>>>>> c79f9d6707b551a23e26b4dbb2813252c361f377
   </component>
 </project>

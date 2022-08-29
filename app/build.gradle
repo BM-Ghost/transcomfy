@@ -5,7 +5,11 @@ plugins {
 android {
     compileSdkVersion 33
     defaultConfig {
+<<<<<<< HEAD
         applicationId "com.vinwil"
+=======
+        applicationId "com.vinwil.vinwil"
+>>>>>>> c79f9d6707b551a23e26b4dbb2813252c361f377
         minSdkVersion 19
         targetSdkVersion 30
         versionCode 1
