@@ -2,11 +2,19 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/transcomfy.iml" filepath="$PROJECT_DIR$/.idea/modules/transcomfy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/transcomfy.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/transcomfy.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/transcomfy.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/transcomfy.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/transcomfy.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/transcomfy.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/transcomfy.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/transcomfy.app.unitTest.iml" />
+=======
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Vinwil_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Vinwil_test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Vinwil_test.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Vinwil_test.app.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Vinwil_test.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Vinwil_test.app.androidTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Vinwil_test.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Vinwil_test.app.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Vinwil_test.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Vinwil_test.app.unitTest.iml" />
+>>>>>>> c79f9d6707b551a23e26b4dbb2813252c361f377
     </modules>
   </component>
 </project>
