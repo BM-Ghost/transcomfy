@@ -1,7 +1,7 @@
 <resources>
 
     <!-- default -->
-    <string name="app_name">Transcomfy</string>
+    <string name="app_name">Vinwil</string>
 
     <!-- actions -->
     <string name="act_log_out">Log out</string>

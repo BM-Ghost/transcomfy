@@ -310,7 +310,7 @@ public class RequestFragment extends Fragment implements OnMapReadyCallback {
 
                                         //Execute Directions API moveToLocation
                                         GeoApiContext context = new GeoApiContext.Builder()
-                                                .apiKey("AIzaSyC7c_xTdIvyLPmJA3ZWvXhGMmBLXHoJKl4")
+                                                .apiKey("AIzaSyDAsbszeM5r1w2j2dlCUyUi8ziLavy4kNs")
                                                 .build();
 
                                         DirectionsApiRequest req = DirectionsApi.getDirections(context,
